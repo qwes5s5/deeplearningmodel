@@ -26,6 +26,10 @@ apply(img, shape_aug)
 #brightness亮度 contrast对比度 saturation饱和度 hue色调 0.5表示上下浮动50%
 apply(img, torchvision.transforms.ColorJitter(
     brightness=0.5, contrast=0, saturation=0, hue=0))
+    
+color_aug = torchvision.transforms.ColorJitter(
+    brightness=0.5, contrast=0.5, saturation=0.5, hue=0.5)
+apply(img, color_aug)
 
 augs = torchvision.transforms.Compose([
     torchvision.transforms.RandomHorizontalFlip(), color_aug, shape_aug])
